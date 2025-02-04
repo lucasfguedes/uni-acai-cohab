@@ -1,0 +1,223 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Garante que o corpo da página ocupe a altura total da tela */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #720d91;
+    padding: 20px 40px;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header .titulo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header .main-nav a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header .main-nav a:hover {
+    color: #a041d8;
+}
+
+.icones {
+    width: 30px;
+    height: 30px;
+}
+
+
+/* Estilo para o botão de cadastro */
+button[type="button"] {
+    background-color: #4caf50; /* Cor do botão */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Estilo do botão quando passar o mouse sobre ele */
+button[type="button"]:hover {
+    background-color: #45a049; /* Cor mais escura ao passar o mouse */
+}
+
+
+/* Container de login */
+.login-container {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 100px; /* Para compensar o header fixo */
+    text-align: center;
+    margin-bottom: 120px; /* Espaço de 120px para afastar o footer do login */
+}
+
+.login-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #720d91;
+}
+
+/* Estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels e Inputs */
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+}
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #720d91;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a041d8;
+}
+
+/* Link para registro */
+p {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+p a {
+    color: #720d91;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #7f14a0;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 30px 10px;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    margin-top: auto; /* Faz com que o footer "empurre" para baixo */
+
+}
+
+footer .footer-nav {
+    margin-bottom: 30px;
+}
+
+footer .footer-nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+footer .footer-nav a:hover {
+    color: #a041d8;
+}
+
+footer .footer-social a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+footer .footer-social a:hover {
+    color: #a041d8;
+}
+
+footer.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #470847;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .login-container {
+        width: 90%;
+        margin-top: 120px; /* Ajuste para dispositivos menores */
+    }
+
+    .icones {
+        width: 25px;
+        height: 25px;
+    }
+}

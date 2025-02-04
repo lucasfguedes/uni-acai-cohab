@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/login_page.css">
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <title>Login - Uni Açaí Cohab</title>
+</head>
+<script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // Impede o envio do formulário
+
+        // Captura os valores dos campos
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+
+        // Simulação de autenticação
+        const usuariosCadastrados = [
+            { email: 'cliente@exemplo.com', senha: '123456' },
+            { email: 'outro@exemplo.com', senha: '654321' }
+        ];
+
+        const usuarioValido = usuariosCadastrados.find(user => user.email === email && user.senha === senha);
+
+        if (usuarioValido) {
+            alert('Login realizado com sucesso!');
+            window.location.href = 'index.html'; // Redireciona para a página principal
+        } else {
+            alert('E-mail ou senha incorretos!');
+        }
+    });
+</script>
+
+<script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+
+        // Recupera o usuário cadastrado no localStorage
+        const usuarioCadastrado = JSON.parse(localStorage.getItem('usuario'));
+
+        if (usuarioCadastrado && usuarioCadastrado.email === email && usuarioCadastrado.senha === senha) {
+            alert('Login realizado com sucesso!');
+            window.location.href = 'index.html'; // Redireciona para a página principal
+        } else {
+            alert('E-mail ou senha incorretos!');
+        }
+    });
+</script>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/img/logo.png" alt="Logo do Site" />
+            </a>
+        </div>
+        <a href="index.html" class="titulo">Uni Açaí Cohab</a>
+        <nav class="main-nav">
+            <a href="https://api.whatsapp.com/send/?phone=%2B5518996228285&text&type=phone_number&app_absent=0">
+                <img class="icones" src="assets/img/whatsapp.png" alt="Ícone do WhatsApp" />
+            </a>
+            <a href="#conta">
+                <img class="icones" src="assets/img/do-utilizador.png" alt="Ícone de Conta" />
+            </a>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">E-mail ou Telefone:</label>
+            <input type="text" id="email" name="email" required>
+    
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+    
+            <button type="submit">Entrar</button>
+            <!-- Novo botão de Cadastro -->
+            <button type="button" onclick="window.location.href='create_user.html'">Cadastrar-se</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="sobre.html" aria-label="Saiba mais sobre a loja">Sobre a Loja</a>
+            <a href="https://g.page/r/CTMCMx6IrbRbEAE/review" aria-label="Leia ou escreva avaliações">Avaliações</a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B5518996228285&text&type=phone_number&app_absent=0" aria-label="Entre em contato pelo WhatsApp">Contato</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a><br><br>
+            <a href="#horarios" aria-label="Veja os horários de funcionamento">Seg - Dom 14:00 - 23:00</a>
+            <a href="trabalhe_conosco.html"> Trabalhe conosco</a>
+            <a href="https://www.linkedin.com/in/lucasfguedes00/">Criador do Site</a>
+        </div>      
+    </footer>
+</body>
+</html>

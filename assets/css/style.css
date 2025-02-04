@@ -1,0 +1,393 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Garante que o texto ficará centralizado */
+}
+
+/* Título */
+.titulo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between; /* Distribui o conteúdo entre os ícones */
+    align-items: center;
+    background-color: #720d91;
+    padding: 20px 50px; /* Aumentando o padding para maior margem lateral */
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Logo */
+header .logo img {
+    height: 70px;
+    margin-left: 10px; /* Pequena margem para a logo */
+}
+
+/* Título */
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+/* Ícones */
+.icones {
+    margin-left: 20px; /* Aumenta a margem esquerda dos ícones */
+    margin-right: 20px; /* Aumenta a margem direita dos ícones */
+    width: 25px;
+    height: 25px;
+}
+
+/* Navegação */
+nav.main-nav {
+    display: flex;
+    justify-content: space-between; /* Distribui igualmente os links */
+    gap: 20px;
+}
+
+/* Links da navegação */
+nav.main-nav a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+nav.main-nav a:hover {
+    color: #a041d8;
+}
+
+
+/* Main */
+main {
+    flex: 1;
+    padding: 5rem;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+/* Grid container para os cartões */
+.flex-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Colunas adaptáveis */
+    gap: 20px;
+    justify-items: center;
+    align-items: center; /* Centraliza o conteúdo dentro de cada célula */
+    margin: 20px;
+}
+
+/* Estilo para cada card */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center; /* Centraliza o conteúdo dentro do card */
+    transition: 0.3s;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+}
+
+/* Imagens dentro dos cards */
+.image-container {
+    width: 100%;
+    height: 10%;
+    padding-top: 56.25%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 1.6rem;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 10px;
+    }
+
+    .search-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-button {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+
+    footer .footer-nav a,
+    footer .footer-social a {
+        font-size: 0.9rem;
+        margin: 5px 8px;
+    }
+
+    .map-container iframe {
+        height: 200px;
+    }
+
+    .button-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .styled-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-section h1 {
+        font-size: 2rem;
+    }
+
+    .left-section p {
+        font-size: 1rem;
+    }
+
+    .form-container,
+    .login-container {
+        padding: 15px;
+    }
+
+    .form-container button,
+    .login-container button {
+        font-size: 14px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #720d91;
+    color: white;
+    padding: 30px 10px;
+    text-align: center;
+    width: 100%; /* Garantir que a largura do footer ocupe toda a página */
+    box-sizing: border-box; /* Inclui o padding no cálculo da largura */
+    position: relative; /* Certifique-se de que ele se alinha corretamente */
+    margin-left: 0; /* Remove qualquer margem da esquerda */
+    margin-right: 0; /* Remove qualquer margem da direita */
+}
+
+
+footer .footer-nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer .footer-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+footer .footer-nav a:hover {
+    color: #a041d8;
+}
+
+footer .footer-social {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer .footer-social a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .footer-social a:hover {
+    color: #a041d8;
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos do Carrinho */
+#carrinho-itens {
+    margin-top: 20px;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.carrinho-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.carrinho-item p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Botões gerais */
+button {
+    background-color: #ff6347; /* Cor do botão */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e53d3d;
+}
+
+button:focus {
+    outline: none;
+}
+
+button.finalizar-pedido {
+    background-color: #32cd32; /* Cor de finalização */
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button.finalizar-pedido:hover {
+    background-color: #28a828;
+}
+
+/* Estilo para cada botão */
+.styled-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.styled-button:hover {
+    background-color: #f1f0f0;
+    transform: scale(1.05);
+}
+
+/* Estilos para o Carrinho de Compras */
+#carrinho-icon {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#carrinho-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
