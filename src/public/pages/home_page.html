@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/global.css"> 
+    <link rel="stylesheet" href="js/cardapio.js">
+    <link rel="stylesheet" href="js/monte_seu_açaí.js">
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <title>Uni Açaí - Cohab</title>
+</head>
+<body>
+
+    <div id="carrinho-modal" class="carrinho-modal">
+        <div class="carrinho-modal-content">
+            <span class="fechar">&times;</span>
+            <h2>Seu Carrinho</h2>
+            <div id="carrinho-itens"></div>
+            <p>Total: R$ <span id="carrinho-total">0,00</span></p>
+            <button onclick="finalizarPedido()">Finalizar Pedido</button>
+        </div>
+    </div>
+
+    <div id="info-container" style="display:none;"></div>
+
+    <header>
+        <div class="logo">
+            <a href="home_page.html">
+                <img src="assets/img/logo.png" alt="Logo do Site">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <a href="https://api.whatsapp.com/send/?phone=%2B5518996228285&text&type=phone_number&app_absent=0">
+                <img class="icones" src="assets/img/whatsapp.png" alt="Ícone do WhatsApp">
+            </a>
+            <a href="user_page_login.html" id="conta-icon">
+                <img class="icones" src="assets/img/do-utilizador.png" alt="Ícone de Conta">
+            </a>
+            <a href="#" id="carrinho-icon">
+                <img class="icones" src="assets/img/bolsa-de-compras.png" alt="Ícone do Carrinho">
+                <span id="carrinho-count">0</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Barra de pesquisa -->
+        <div class="search-container">
+            <form action="/buscar" method="GET">
+                <input type="search" name="query" class="search-input" placeholder="Buscar no Cardápio" required>
+                <button type="submit" class="search-button">Buscar</button>
+            </form>
+        </div>
+
+        <div class="button-container">
+            <button class="carrossel-button" onclick="window.location.href='#casadinhos-container'">Casadinhos</button>
+            <button class="carrossel-button" onclick="window.location.href='#milkshake-container'">Milkshakes</button>
+            <button class="carrossel-button" onclick="window.location.href='novos-combinados.html'">Açaí Batido</button>
+            <button class="carrossel-button" onclick="window.location.href='novos-combinados.html'">Monte o Seu Açaí</button>
+            <button class="carrossel-button" onclick="window.location.href='novos-combinados.html'">Potes</button>
+            <button class="carrossel-button" onclick="window.location.href='novos-combinados.html'">Barcas</button>
+            <button class="carrossel-button" onclick="window.location.href='promoções.html'">Promoções</button>
+            <button class="carrossel-button" onclick="window.location.href='novos-combinados.html'">Exagerados</button>
+        </div>
+
+        <!-- Seções do Cardápio -->
+        <h2 style="text-align: left;">Monte o seu açaí</h2>
+        <div class="flex-container" id="produtos-container"></div>
+
+        <!-- Modal para escolher o tamanho -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="fechar">&times;</span> <!-- Botão de fechar -->
+                <h2 id="modal-title">Monte seu Açaí</h2>
+
+                <div id="size-options">
+                    <!-- Opções de tamanho -->
+                    <select>
+                        <option data-preco="14.00">Pequeno</option>
+                        <option data-preco="18.00">Médio</option>
+                        <option data-preco="22.00">Grande</option>
+                    </select>
+                </div>
+
+                <div id="acompanhamentos">
+                    <h1>Acompanhamentos</h1>
+
+                    <div class="quantity-selector">
+                        <label for="abacaxi">Abacaxi R$ 2,50</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="abacaxi" name="abacaxi" value="0" min="0" max="10" data-preco="2.50">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="banana">Banana R$ 2,50</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="banana" name="banana" value="0" min="0" max="10" data-preco="2.50">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="kiwi">Kiwi R$ 2,50</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="kiwi" name="kiwi" value="0" min="0" max="10" data-preco="2.50">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="morango">Morango R$ 2,50</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="morango" name="morango" value="0" min="0" max="10" data-preco="2.50">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="uva">Uva R$ 2,50</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="uva" name="uva" value="0" min="0" max="10" data-preco="2.50">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="cereja">Cereja R$ 2,00</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="cereja" name="cereja" value="0" min="0" max="10" data-preco="2.00">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="damasco">Damasco R$ 2,00</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="damasco" name="damasco" value="0" min="0" max="10" data-preco="2.00">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="goiaba">Goiaba R$ 2,00</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="goiaba" name="goiaba" value="0" min="0" max="10" data-preco="2.00">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="maca">Maçã R$ 2,00</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="maca" name="maca" value="0" min="0" max="10" data-preco="2.00">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="mamao">Mamão R$ 2,00</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="mamao" name="mamao" value="0" min="0" max="10" data-preco="2.00">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="manga">Manga R$ 2,00</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="manga" name="manga" value="0" min="0" max="10" data-preco="2.00">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="pessego">Pêssego R$ 2,00</label>
+                        <div class="quantity-controls">
+                            <button class="decrement">-</button>
+                            <input type="number" id="pessego" name="pessego" value="0" min="0" max="10" data-preco="2.00">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Add more quantity selectors for other groups and items as needed -->
+
+                </div>
+
+                <p id="modal-preco">Preço: R$0.00</p>
+                <button id="confirmarCompra">Confirmar Compra</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="sobre.html" aria-label="Saiba mais sobre a loja">Sobre a Loja</a>
+            <a href="https://g.page/r/CTMCMx6IrbRbEAE/review" aria-label="Leia ou escreva avaliações">Avaliações</a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B5518996228285&text&type=phone_number&app_absent=0" aria-label="Entre em contato pelo WhatsApp">Contato</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://facebook.com/uniacai" target="_blank" aria-label="Facebook">
+                <img src="assets/img/facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://instagram.com/uniacaicohab" target="_blank" aria-label="Instagram">
+                <img src="assets/img/instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+        <div class="footer-info">
+    <script src="assets/css/js/verificacao_de_log.js"></script>
+    <script src="assets/js/carrinho.js"></script>
+    <script src="assets/js/monte_seu_açaí.js"></script>
+    <div id="info-container"></div>
+    <a href="#conta" id="conta">
+        <img class="icones" src="assets/img/do-utilizador.png" alt="Ícone de Conta">
+    </a>
+</body>
+</html>

@@ -1,0 +1,393 @@
+/* Reset básico melhorado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Corpo com gradiente sutil */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f4f4f4 100%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Header aprimorado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #8e44ad 0%, #a041d8 100%);
+    padding: 15px 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header .logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+    transform: scale(1.05);
+}
+
+header .titulo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+header .main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+header .main-nav a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+header .main-nav a:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.icones {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.icones:hover {
+    transform: scale(1.1);
+}
+
+/* Container de login aprimorado */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    margin-top: 100px;
+    margin-bottom: 120px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.login-container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.login-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: #8e44ad;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.login-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #8e44ad 0%, #a041d8 100%);
+}
+
+/* Estilo do formulário melhorado */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Labels e Inputs aprimorados */
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+input:focus {
+    border-color: #a041d8;
+    box-shadow: 0 0 0 3px rgba(160, 65, 216, 0.2);
+    background-color: white;
+}
+
+/* Botões aprimorados */
+button {
+    background: linear-gradient(90deg, #8e44ad 0%, #a041d8 100%);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(160, 65, 216, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Botão de cadastro alternativo */
+button[type="button"] {
+    background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
+    margin-top: 10px;
+}
+
+button[type="button"]:hover {
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+/* Mensagens de erro do Firebase */
+.mensagem-erro {
+    color: #e74c3c;
+    background-color: #fdecea;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    border-left: 4px solid #e74c3c;
+    text-align: left;
+    display: none;
+}
+
+/* Links extras */
+.links-extras {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.links-extras a {
+    color: #a041d8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.links-extras a:hover {
+    color: #8e44ad;
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+
+/* Botões sociais melhorados */
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+}
+
+.social-btn:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.social-btn.google {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+}
+
+.social-btn.google:hover {
+    background-color: #357ae8;
+    box-shadow: 0 5px 15px rgba(66, 133, 244, 0.4);
+}
+
+.social-btn img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Popup de informações do usuário */
+#info-container {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 1001;
+    min-width: 280px;
+    border: 1px solid rgba(0,0,0,0.05);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-info-popup h3 {
+    margin-top: 0;
+    color: #8e44ad;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.3rem;
+}
+
+.user-info-popup p {
+    margin: 12px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.admin-badge {
+    color: #8e44ad;
+    font-weight: 700;
+    background-color: #f0e6f5;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 0.85rem;
+}
+
+#logout-btn {
+    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+#logout-btn:hover {
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* Footer aprimorado */
+footer {
+    background: linear-gradient(90deg, #8e44ad 0%, #a041d8 100%);
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+footer .footer-nav, footer .footer-social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+}
+
+footer a:hover {
+    color: #f1c40f;
+    transform: translateY(-2px);
+}
+
+/* Responsividade aprimorada */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        padding: 15px 20px;
+    }
+    
+    .login-container {
+        width: 90%;
+        margin-top: 90px;
+        padding: 20px;
+    }
+    
+    #info-container {
+        top: 70px;
+        right: 10px;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    header .titulo {
+        font-size: 1.5rem;
+    }
+    
+    .login-container h2 {
+        font-size: 1.8rem;
+    }
+    
+    footer .footer-nav, footer .footer-social {
+        gap: 10px;
+    }
+    
+    footer a {
+        font-size: 0.8rem;
+    }
+}

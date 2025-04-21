@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css_adm/produtos.css">
+    <link rel="stylesheet" href="JS/produtos.js">
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <title>Uni Açaí - Cohab</title>
+</head>
+<body>
+    <header>
+        <h1>Administração</h1>
+        <div class="user-info">
+            <img src="img_adm/icons8-macho-de-configurações-de-admin-48.png" alt="Ícone de Admin">
+        </div>
+    </header>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="adm.html">Gerenciar Pedidos</a></li>
+                <li><a href="troca_de_preços.html">Trocar Preços</a></li>
+                <li><a href="rotas_de_entregas.html">Rotas de Entrega</a></li>
+                <li><a href="usuarios.html">Ver Usuários</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+            </ul>
+        </div>
+
+        <!-- Principal: Formulário e Produtos -->
+        <div class="content">
+            <!-- Formulário de Adição de Produto -->
+            <section>
+                <h2>Adicionar Novo Produto</h2>
+                <form id="formProduto">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" required><br><br>
+
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" required><br><br>
+
+                    <label for="preco">Preço:</label>
+                    <input type="text" id="preco" required><br><br>
+
+                    <label for="imagem">Imagem (URL):</label>
+                    <input type="text" id="imagem" required><br><br>
+
+                    <button type="submit">Adicionar Produto</button>
+                </form>
+            </section>
+
+            <!-- Exibição dos Produtos -->
+            <section id="produtos-home">
+                <h2>Produtos</h2>
+                <div id="produtos-container"></div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const formProduto = document.getElementById('formProduto');
+            const nomeInput = document.getElementById('nome');
+            const descricaoInput = document.getElementById('descricao');
+            const precoInput = document.getElementById('preco');
+            const imagemInput = document.getElementById('imagem');
+            const produtosContainer = document.getElementById('produtos-container');
+
+            // Função para salvar os produtos no localStorage
+            function salvarProdutos(produtos) {
+                localStorage.setItem("produtos", JSON.stringify(produtos));
+            }
+
+            // Função para carregar os produtos do localStorage
+            function carregarProdutos() {
+                const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+                gerarProdutos(produtos);
+            }
+
+            // Função para gerar a lista de produtos na home
+            function gerarProdutos(produtos) {
+                produtosContainer.innerHTML = "";
+                produtos.forEach(produto => {
+                    const card = document.createElement("div");
+                    card.classList.add("card");
+
+                    card.innerHTML = `
+                        <div class="image-container">
+                            <img src="${produto.imagem}" alt="${produto.nome}">
+                        </div>
+                        <div class="content">
+                            <h2>${produto.nome}</h2>
+                            <p>${produto.descricao}</p>
+                            <p class="price">${produto.preco}</p>
+                        </div>
+                    `;
+                    produtosContainer.appendChild(card);
+                });
+            }
+
+            // Função para adicionar um novo produto
+            formProduto.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const produto = {
+                    nome: nomeInput.value,
+                    descricao: descricaoInput.value,
+                    preco: precoInput.value,
+                    imagem: imagemInput.value
+                };
+
+                // Carrega os produtos existentes do localStorage
+                const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+                produtos.push(produto);
+
+                // Salva os produtos atualizados
+                salvarProdutos(produtos);
+
+                // Limpa o formulário
+                nomeInput.value = "";
+                descricaoInput.value = "";
+                precoInput.value = "";
+                imagemInput.value = "";
+
+                // Atualiza a exibição dos produtos na home
+                carregarProdutos();
+
+                alert("Produto adicionado com sucesso!");
+            });
+
+            // Carregar os produtos ao carregar a página
+            carregarProdutos();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+/* Reset aprimorado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Corpo com gradiente sutil */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+/* Header aprimorado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #8e44ad 0%, #a041d8 100%);
+    padding: 15px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header .logo img {
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+header .logo:hover img {
+    transform: scale(1.05);
+}
+
+header .titulo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+header .main-nav {
+    display: flex;
+    gap: 15px;
+}
+
+header .main-nav a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+header .main-nav a:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.icones {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.icones:hover {
+    transform: scale(1.1);
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 80px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Formulário de cadastro */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+    margin: 20px 0;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.form-container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.form-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #8e44ad;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.form-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #8e44ad 0%, #a041d8 100%);
+}
+
+/* Estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Labels e Inputs */
+label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+input:focus {
+    border-color: #a041d8;
+    box-shadow: 0 0 0 3px rgba(160, 65, 216, 0.2);
+    background-color: white;
+}
+
+/* Mensagens de validação */
+#mensagem {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    min-height: 20px;
+}
+
+#mensagem p {
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+#mensagem .error {
+    color: #d9534f;
+    background-color: #fdecea;
+    border-left: 3px solid #d9534f;
+}
+
+#mensagem .success {
+    color: #28a745;
+    background-color: #e8f5e9;
+    border-left: 3px solid #28a745;
+}
+
+/* Botões */
+button[type="submit"] {
+    background: linear-gradient(90deg, #8e44ad 0%, #a041d8 100%);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(160, 65, 216, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Botão do Google */
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+}
+
+.social-btn:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.social-btn.google {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+}
+
+.social-btn.google:hover {
+    background-color: #357ae8;
+    box-shadow: 0 5px 15px rgba(66, 133, 244, 0.4);
+}
+
+.social-btn img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Link para login */
+.login-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-container a {
+    color: #8e44ad;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.login-container a:hover {
+    color: #a041d8;
+    text-decoration: underline;
+    transform: translateX(3px);
+}
+
+/* Footer aprimorado */
+footer {
+    background: linear-gradient(90deg, #8e44ad 0%, #a041d8 100%);
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+footer .footer-nav, footer .footer-social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+}
+
+footer a:hover {
+    color: #f1c40f;
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 15px;
+    }
+    
+    header .titulo {
+        font-size: 1.3rem;
+    }
+    
+    .form-container {
+        padding: 20px;
+        margin-top: 15px;
+    }
+    
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo img {
+        height: 30px;
+    }
+    
+    header .titulo {
+        font-size: 1.1rem;
+    }
+    
+    .form-container {
+        padding: 15px;
+    }
+    
+    input, button[type="submit"], .social-btn {
+        padding: 10px;
+    }
+    
+    footer .footer-nav, footer .footer-social {
+        gap: 10px;
+    }
+    
+    footer a {
+        font-size: 0.8rem;
+    }
+}

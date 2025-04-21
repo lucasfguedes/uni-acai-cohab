@@ -1,0 +1,244 @@
+/* Estilos Gerais - Mantendo a identidade visual */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Header - Consistente com outras páginas */
+header {
+    background: linear-gradient(135deg, #8e44ad 0%, #a041d8 100%);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.user-info:hover img {
+    transform: scale(1.1);
+}
+
+/* Layout Principal */
+.container {
+    display: flex;
+    min-height: calc(100vh - 72px); /* Altura total menos o header */
+}
+
+/* Sidebar - Estilo consistente */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 1.5rem 0;
+}
+
+.sidebar h2 {
+    padding: 0 1.5rem 1rem;
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding-left: 1.8rem;
+}
+
+.sidebar a.active {
+    background-color: rgba(160, 65, 216, 0.2);
+    color: white;
+    border-left: 3px solid #a041d8;
+}
+
+/* Conteúdo Principal */
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+.user-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.user-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #8e44ad;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Lista de Preços */
+.price-list {
+    list-style: none;
+}
+
+.price-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-item input[type="text"] {
+    flex: 2;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    color: #555;
+}
+
+.price-item input[type="number"] {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.price-item input[type="number"]:focus {
+    border-color: #a041d8;
+    box-shadow: 0 0 0 2px rgba(160, 65, 216, 0.2);
+    outline: none;
+}
+
+/* Botões */
+.btn {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.btn:hover {
+    background-color: #a041d8;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(160, 65, 216, 0.3);
+}
+
+/* Formatação de moeda */
+.price-input-container {
+    position: relative;
+    flex: 1;
+}
+
+.price-input-container::before {
+    content: "R$";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+}
+
+.price-input-container input {
+    padding-left: 30px !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    .price-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .price-item input {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .user-info {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Efeitos de transição */
+a, button, input {
+    transition: all 0.3s ease;
+}

@@ -1,0 +1,315 @@
+/* Estilos Gerais - Mantendo consistência com a página de admin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header - Igual ao admin */
+header {
+    background: linear-gradient(135deg, #8e44ad 0%, #a041d8 100%);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.user-info:hover img {
+    transform: scale(1.1);
+}
+
+/* Container Principal */
+.container {
+    display: flex;
+    flex: 1;
+}
+
+/* Sidebar - Igual ao admin */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 1.5rem 0;
+    height: calc(100vh - 60px);
+    position: sticky;
+    top: 60px;
+    transition: all 0.3s ease;
+}
+
+.sidebar h2 {
+    padding: 0 1.5rem 1rem;
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-left: 3px solid #a041d8;
+}
+
+.sidebar a.active {
+    background-color: rgba(160, 65, 216, 0.2);
+    color: white;
+    border-left: 3px solid #a041d8;
+}
+
+/* Conteúdo Principal - Adaptado para produtos */
+.content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #8e44ad;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Formulário de Produto */
+#formProduto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+#formProduto label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
+}
+
+#formProduto input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#formProduto input:focus {
+    border-color: #a041d8;
+    box-shadow: 0 0 0 3px rgba(160, 65, 216, 0.2);
+    outline: none;
+}
+
+#formProduto button {
+    grid-column: span 2;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+#formProduto button:hover {
+    background-color: #a041d8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(160, 65, 216, 0.3);
+}
+
+/* Lista de Produtos */
+#produtos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+    height: 180px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .image-container img {
+    transform: scale(1.05);
+}
+
+.content {
+    padding: 1.2rem;
+}
+
+.content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.content p {
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.price {
+    font-weight: bold;
+    color: #8e44ad;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    #formProduto {
+        grid-template-columns: 1fr;
+    }
+    
+    #formProduto button {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+    .sidebar ul {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+
+    .sidebar li {
+        margin-bottom: 0;
+        margin-right: 1rem;
+        white-space: nowrap;
+    }
+
+    .sidebar a {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        padding: 0.8rem 1rem;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+        border-left: none;
+        border-bottom: 3px solid #a041d8;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .user-info {
+        margin-top: 0.5rem;
+    }
+
+    #produtos-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Efeitos de transição para interações */
+a, button, .card {
+    transition: all 0.3s ease;
+}

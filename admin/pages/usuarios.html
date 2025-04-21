@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css_adm/usuarios.css">
+    <link rel="stylesheet" href="JS/usuarios.js">
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+    <title>Usuários - Uni Açaí Cohab</title>
+</head>
+<body>
+    <header>
+        <h1>Administração</h1>
+        <div class="user-info">
+            <img src="img_adm/icons8-macho-de-configurações-de-admin-48.png" alt="Admin">
+        </div>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="adm.html">Gerenciar Pedidos</a></li>
+                <li><a href="troca_de_preços.html">Trocar Preços</a></li>
+                <li><a href="rotas_de_entregas.html">Rotas de Entrega</a></li>
+                <li><a href="rotas_de_entregas.html" class="active">Ver Usuários</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+            </ul>
+        </div>
+        <main>
+            <div class="main-content">
+                <section class="user-section">
+                    <div class="section-header">
+                        <h2>Gerenciamento de Usuários</h2>
+                        <div class="export-buttons">
+                            <button id="export-csv" class="btn-export">Exportar CSV</button>
+                            <button id="export-excel" class="btn-export">Exportar Excel</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filters-container">
+                        <div class="search-bar">
+                            <input type="text" id="user-search" placeholder="Buscar usuários...">
+                            <button id="search-btn"><i class="search-icon"></i></button>
+                        </div>
+                        
+                        <div class="advanced-filters">
+                            <select id="filter-status">
+                                <option value="all">Todos os status</option>
+                                <option value="active">Ativos</option>
+                                <option value="inactive">Inativos</option>
+                            </select>
+                            
+                            <select id="filter-type">
+                                <option value="all">Todos os tipos</option>
+                                <option value="admin">Administradores</option>
+                                <option value="user">Usuários comuns</option>
+                            </select>
+                            
+                            <input type="date" id="filter-date" placeholder="Data de cadastro">
+                        </div>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table id="users-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Cadastro</th>
+                                    <th>Status</th>
+                                    <th>Tipo</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-list">
+                                <!-- Dados serão carregados via JavaScript -->
+                            </tbody>
+                        </table>
+                        
+                        <div class="pagination-controls">
+                            <div class="pagination-info">
+                                Mostrando <span id="start-item">1</span>-<span id="end-item">10</span> de <span id="total-items">0</span>
+                            </div>
+                            <div class="pagination-buttons">
+                                <button id="first-page" disabled>«</button>
+                                <button id="prev-page" disabled>‹</button>
+                                <div id="page-numbers"></div>
+                                <button id="next-page" disabled>›</button>
+                                <button id="last-page" disabled>»</button>
+                            </div>
+                            <div class="page-size">
+                                <select id="items-per-page">
+                                    <option value="10">10 itens</option>
+                                    <option value="25">25 itens</option>
+                                    <option value="50">50 itens</option>
+                                    <option value="100">100 itens</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Detalhes -->
+    <div class="modal">
+        <div class="modal-content">
+            <!-- Conteúdo será preenchido via JavaScript -->
+        </div>
+    </div>
+
+    <script src="jsAdmin/xlsx.full.min.js"></script>
+    <script src="jsAdmin/usuarios.js"></script>
+</body>
+</html>

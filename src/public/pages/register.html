@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles_css/register.css">
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+    <title>Uni Açaí Cohab</title>
+    <script src="assets/js/firebase_google.js" defer type="module"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="home_page.html">
+                <img src="assets/img/logo.png" alt="Logo do Site">
+            </a>
+        </div>
+        <a href="index.html" class="titulo">Uni Açaí Cohab</a>
+        <nav class="main-nav">
+            <a href="https://api.whatsapp.com/send/?phone=%2B5518996228285&text&type=phone_number&app_absent=0">
+                <img class="icones" src="assets/img/whatsapp.png" alt="Ícone do WhatsApp">
+            </a>
+            <a href="#conta">
+                <img class="icones" src="assets/img/do-utilizador.png" alt="Ícone de Conta">
+            </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Cadastro</h2>
+            <form id="signup-form" action="/cadastrar" method="post">
+                <label for="usuario">Nome de usuário:</label>
+                <input type="text" id="usuario" name="usuario" required autocomplete="username">
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required autocomplete="new-password">
+
+                <label for="confirmar-senha">Confirmar Senha:</label>
+                <input type="password" id="confirmar-senha" name="confirmar-senha" required autocomplete="new-password">
+                <div id="mensagem"></div>
+
+                <button id="google-login" class="social-btn google" type="button">Entrar com Google</button>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <div class="login-container">
+                <a href="user_page_login.html">Fazer Login</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="sobre.html" aria-label="Saiba mais sobre a loja">Sobre a Loja</a>
+            <a href="https://g.page/r/CTMCMx6IrbRbEAE/review" aria-label="Leia ou escreva avaliações">Avaliações</a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B5518996228285&text&type=phone_number&app_absent=0" aria-label="Entre em contato pelo WhatsApp">Contato</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a><br><br>
+            <a href="#horarios" aria-label="Veja os horários de funcionamento">Seg - Dom 14:00 - 23:00</a>
+            <a href="trabalhe_conosco.html"> Trabalhe conosco</a>
+            <a href="https://www.linkedin.com/in/lucasfguedes00/">Criador do Site</a>
+        </div>      
+    </footer>
+
+    <script src="assets/js/create_user.js"></script>
+    <!-- Adicione este script no final do body -->
+<script>
+    document.getElementById('signup-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const nome = document.getElementById('usuario').value;
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+        const confirmarSenha = document.getElementById('confirmar-senha').value;
+        const mensagem = document.getElementById('mensagem');
+    
+        // Validações
+        if (senha !== confirmarSenha) {
+            mensagem.textContent = "As senhas não coincidem!";
+            mensagem.style.color = "red";
+            return;
+        }
+    
+        try {
+            const response = await fetch('/api/usuarios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome, email, senha })
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                mensagem.textContent = "Cadastro realizado com sucesso!";
+                mensagem.style.color = "green";
+                setTimeout(() => {
+                    window.location.href = "login.html";
+                }, 2000);
+            } else {
+                throw new Error(data.message || 'Erro no cadastro');
+            }
+        } catch (error) {
+            mensagem.textContent = error.message;
+            mensagem.style.color = "red";
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/login_page.css">
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+    <title>Login - Uni Açaí Cohab</title>
+    <!-- Adicione os scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="home_page.html">
+                <img src="assets/img/logo.png" alt="Logo do Site" />
+            </a>
+        </div>
+        <a href="index.html" class="titulo">Uni Açaí Cohab</a>
+        <nav class="main-nav">
+            <a href="https://api.whatsapp.com/send/?phone=%2B5518996228285&text&type=phone_number&app_absent=0">
+                <img class="icones" src="assets/img/whatsapp.png" alt="Ícone do WhatsApp" />
+            </a>
+            <a href="#conta">
+                <img class="icones" src="assets/img/do-utilizador.png" alt="Ícone de Conta" />
+            </a>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+    
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required autocomplete="current-password">
+            
+            <div id="mensagem-erro" class="mensagem-erro"></div>
+            
+            <button id="google-login" class="social-btn google" type="button">Entrar com Google</button>
+
+            <button type="submit">Entrar</button>
+            <button type="button" onclick="window.location.href='create_user.html'">Cadastrar-se</button>
+            
+            <div class="links-extras">
+                <a href="recuperar_senha.html">Esqueci minha senha</a>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <!-- Seu footer permanece o mesmo -->
+    </footer>
+
+    <!-- Adicione este script no final do body -->
+    <script src="assets/js/login.js"></script>
+</body>
+</html>
